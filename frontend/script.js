@@ -5,7 +5,7 @@ const API_BASE_URL = 'http://127.0.0.1:5000/api'; // Local Flask API URL
 const transactionTypeFilter = document.getElementById('transactionTypeFilter');
 const startDateFilter = document.getElementById('startDateFilter');
 const endDateFilter = document.getElementById('endDateFilter');
-const searchTextFilter = document.getElementById('searchTextFilter')
+const searchTextFilter = document.getElementById('searchTextFilter');
 const applyFiltersBtn = document.getElementById('applyFiltersBtn');
 const clearFiltersBtn = document.getElementById('clearFiltersBtn');
 const transactionsTableBody = document.querySelector('#transactionsTable tbody');
@@ -57,7 +57,7 @@ function hideError() {
 async function fetchTransactionTypes() {
     try {
         const response = await fetch(`${API_BASE_URL}/transaction-types`, {
-            method: 'GEY',
+            method: 'GET',
             mode: 'cors',
             credentials: 'include',
             headers: {
@@ -335,7 +335,7 @@ async function applyFilters() {
     } catch (error) {
         console.error('Error applying filters:', error);
         showError('Failed to apply filters.');
-        hideLoading()
+        hideLoading();
     }
 }
 
